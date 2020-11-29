@@ -1,0 +1,27 @@
+.c-messages {
+  &__item {
+    margin-bottom: 12px;
+    padding: 12px 12px 4px;
+    background-color: #fff;
+    border: 1px solid var(--ion-color-light);
+    border-radius: 12px;
+    &-created {
+      color: var(--ion-color-medium);
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+    &-message {
+      color: #444;
+      font-size: 12px;
+    }
+    &-button {
+      margin-top: 12px;
+      text-align: right;
+    }
+  }
+}
+.empty {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 16px;
+}

@@ -1,0 +1,28 @@
+app-textarea {
+  .c-textarea {
+    margin: 20px 14px;
+    text-align: center;
+    textarea {
+      border-radius: 18px;
+      height: 153px;
+      width: 100%;
+      padding: 18px;
+      font-size: 14px;
+      resize: none;
+    }
+    textarea:focus {
+      outline: 0;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(var(--ion-color-primary-rgb), 0.6);
+    }
+    &__number {
+      font-size: 12px;
+      margin-right: 10px;
+      text-align: right;
+    }
+    &__button {
+      margin-top: 12px;
+      width: 60%;
+      font-size: 18px;
+    }
+  }
+}

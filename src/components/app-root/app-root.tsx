@@ -14,6 +14,10 @@ export class AppRoot {
             <ion-route url="/home" component="tab-home">
               <ion-route component="page-home" />
             </ion-route>
+            <ion-route url="/messages" component="tab-message">
+              <ion-route component="page-messages" />
+              <ion-route url="/:userId/:messageId" component="page-message" />
+            </ion-route>
           </ion-route>
         </ion-router>
         <ion-nav />

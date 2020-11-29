@@ -8,11 +8,27 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AppRoot {
     }
+    interface AppTextarea {
+        "btText": string;
+        "placeholder": string;
+    }
     interface AuthButton {
     }
     interface PageHome {
     }
+    interface PageMessage {
+        "messageId": string;
+        "userId": string;
+    }
+    interface PageMessages {
+    }
     interface PageTabs {
+    }
+    interface UserProfile {
+        "image": string;
+        "message": string;
+        "name": string;
+        "size": number;
     }
 }
 declare global {
@@ -21,6 +37,12 @@ declare global {
     var HTMLAppRootElement: {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
+    };
+    interface HTMLAppTextareaElement extends Components.AppTextarea, HTMLStencilElement {
+    }
+    var HTMLAppTextareaElement: {
+        prototype: HTMLAppTextareaElement;
+        new (): HTMLAppTextareaElement;
     };
     interface HTMLAuthButtonElement extends Components.AuthButton, HTMLStencilElement {
     }
@@ -34,33 +56,76 @@ declare global {
         prototype: HTMLPageHomeElement;
         new (): HTMLPageHomeElement;
     };
+    interface HTMLPageMessageElement extends Components.PageMessage, HTMLStencilElement {
+    }
+    var HTMLPageMessageElement: {
+        prototype: HTMLPageMessageElement;
+        new (): HTMLPageMessageElement;
+    };
+    interface HTMLPageMessagesElement extends Components.PageMessages, HTMLStencilElement {
+    }
+    var HTMLPageMessagesElement: {
+        prototype: HTMLPageMessagesElement;
+        new (): HTMLPageMessagesElement;
+    };
     interface HTMLPageTabsElement extends Components.PageTabs, HTMLStencilElement {
     }
     var HTMLPageTabsElement: {
         prototype: HTMLPageTabsElement;
         new (): HTMLPageTabsElement;
     };
+    interface HTMLUserProfileElement extends Components.UserProfile, HTMLStencilElement {
+    }
+    var HTMLUserProfileElement: {
+        prototype: HTMLUserProfileElement;
+        new (): HTMLUserProfileElement;
+    };
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
+        "app-textarea": HTMLAppTextareaElement;
         "auth-button": HTMLAuthButtonElement;
         "page-home": HTMLPageHomeElement;
+        "page-message": HTMLPageMessageElement;
+        "page-messages": HTMLPageMessagesElement;
         "page-tabs": HTMLPageTabsElement;
+        "user-profile": HTMLUserProfileElement;
     }
 }
 declare namespace LocalJSX {
     interface AppRoot {
     }
+    interface AppTextarea {
+        "btText"?: string;
+        "onClicked"?: (event: CustomEvent<any>) => void;
+        "placeholder"?: string;
+    }
     interface AuthButton {
     }
     interface PageHome {
     }
+    interface PageMessage {
+        "messageId"?: string;
+        "userId"?: string;
+    }
+    interface PageMessages {
+    }
     interface PageTabs {
+    }
+    interface UserProfile {
+        "image"?: string;
+        "message"?: string;
+        "name"?: string;
+        "size"?: number;
     }
     interface IntrinsicElements {
         "app-root": AppRoot;
+        "app-textarea": AppTextarea;
         "auth-button": AuthButton;
         "page-home": PageHome;
+        "page-message": PageMessage;
+        "page-messages": PageMessages;
         "page-tabs": PageTabs;
+        "user-profile": UserProfile;
     }
 }
 export { LocalJSX as JSX };
@@ -68,9 +133,13 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "app-textarea": LocalJSX.AppTextarea & JSXBase.HTMLAttributes<HTMLAppTextareaElement>;
             "auth-button": LocalJSX.AuthButton & JSXBase.HTMLAttributes<HTMLAuthButtonElement>;
             "page-home": LocalJSX.PageHome & JSXBase.HTMLAttributes<HTMLPageHomeElement>;
+            "page-message": LocalJSX.PageMessage & JSXBase.HTMLAttributes<HTMLPageMessageElement>;
+            "page-messages": LocalJSX.PageMessages & JSXBase.HTMLAttributes<HTMLPageMessagesElement>;
             "page-tabs": LocalJSX.PageTabs & JSXBase.HTMLAttributes<HTMLPageTabsElement>;
+            "user-profile": LocalJSX.UserProfile & JSXBase.HTMLAttributes<HTMLUserProfileElement>;
         }
     }
 }
