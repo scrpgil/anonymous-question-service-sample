@@ -66,7 +66,7 @@ export class MessagePage {
       <ion-header>
         <ion-toolbar color="primary">
           <ion-buttons slot="start">
-            <ion-back-button text="戻る" default-href="home" />
+            <ion-back-button text="戻る" default-href="message" />
           </ion-buttons>
           <ion-title>メッセージ詳細</ion-title>
           <ion-buttons slot="end">
