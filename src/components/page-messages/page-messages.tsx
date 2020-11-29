@@ -32,6 +32,24 @@ export class MessagesPage {
     }
   }
 
+  async doRefresh(ev: any) {
+    this.messages = [];
+    await this.getList();
+    ev.target.complete();
+  }
+
+  async loadData(ev) {
+    if (this.messages.length > 0) {
+      if (this.messages.length > 1) {
+        const createdAt = this.messages[this.messages.length - 1].createdAt;
+        await this.getList(createdAt);
+      } else {
+        await this.getList();
+      }
+    }
+    ev.target.complete();
+  }
+
   render() {
     return [
       <ion-header>
@@ -43,6 +61,9 @@ export class MessagesPage {
         </ion-toolbar>
       </ion-header>,
       <ion-content class="ion-padding">
+        <ion-refresher slot="fixed" onIonRefresh={ev => this.doRefresh(ev)}>
+          <ion-refresher-content />
+        </ion-refresher>
         {(() => {
           if (this.loginUser) {
             return (
@@ -73,6 +94,9 @@ export class MessagesPage {
             );
           }
         })()}
+        <ion-infinite-scroll onIonInfinite={ev => this.loadData(ev)}>
+          <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="読み込み中..." />
+        </ion-infinite-scroll>
       </ion-content>,
     ];
   }

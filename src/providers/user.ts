@@ -1,4 +1,4 @@
-import { getUser } from '../helpers/firebase';
+import { getUser, getUsers } from '../helpers/firebase';
 import { IUser } from '../interfaces/user';
 
 export class UserController {
@@ -10,6 +10,20 @@ export class UserController {
       const user: IUser | any = doc.data();
       user.id = doc.id;
       resolve(user);
+    });
+  }
+
+  async getUserList(createdAt: Date = new Date()): Promise<IUser[]> {
+    return new Promise(async resolve => {
+      const userList: IUser[] = [];
+      getUsers(createdAt).then((snapshot: any) => {
+        snapshot.forEach((doc: any) => {
+          const user = doc.data();
+          user.id = doc.id;
+          userList.push(user);
+        });
+        resolve(userList);
+      });
     });
   }
 }

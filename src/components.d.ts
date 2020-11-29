@@ -22,7 +22,15 @@ export namespace Components {
     }
     interface PageMessages {
     }
+    interface PageSetting {
+    }
     interface PageTabs {
+    }
+    interface PageUser {
+        "userId": string;
+    }
+    interface PageUsers {
+        "userId": string;
     }
     interface UserProfile {
         "image": string;
@@ -68,11 +76,29 @@ declare global {
         prototype: HTMLPageMessagesElement;
         new (): HTMLPageMessagesElement;
     };
+    interface HTMLPageSettingElement extends Components.PageSetting, HTMLStencilElement {
+    }
+    var HTMLPageSettingElement: {
+        prototype: HTMLPageSettingElement;
+        new (): HTMLPageSettingElement;
+    };
     interface HTMLPageTabsElement extends Components.PageTabs, HTMLStencilElement {
     }
     var HTMLPageTabsElement: {
         prototype: HTMLPageTabsElement;
         new (): HTMLPageTabsElement;
+    };
+    interface HTMLPageUserElement extends Components.PageUser, HTMLStencilElement {
+    }
+    var HTMLPageUserElement: {
+        prototype: HTMLPageUserElement;
+        new (): HTMLPageUserElement;
+    };
+    interface HTMLPageUsersElement extends Components.PageUsers, HTMLStencilElement {
+    }
+    var HTMLPageUsersElement: {
+        prototype: HTMLPageUsersElement;
+        new (): HTMLPageUsersElement;
     };
     interface HTMLUserProfileElement extends Components.UserProfile, HTMLStencilElement {
     }
@@ -87,7 +113,10 @@ declare global {
         "page-home": HTMLPageHomeElement;
         "page-message": HTMLPageMessageElement;
         "page-messages": HTMLPageMessagesElement;
+        "page-setting": HTMLPageSettingElement;
         "page-tabs": HTMLPageTabsElement;
+        "page-user": HTMLPageUserElement;
+        "page-users": HTMLPageUsersElement;
         "user-profile": HTMLUserProfileElement;
     }
 }
@@ -109,7 +138,15 @@ declare namespace LocalJSX {
     }
     interface PageMessages {
     }
+    interface PageSetting {
+    }
     interface PageTabs {
+    }
+    interface PageUser {
+        "userId"?: string;
+    }
+    interface PageUsers {
+        "userId"?: string;
     }
     interface UserProfile {
         "image"?: string;
@@ -124,7 +161,10 @@ declare namespace LocalJSX {
         "page-home": PageHome;
         "page-message": PageMessage;
         "page-messages": PageMessages;
+        "page-setting": PageSetting;
         "page-tabs": PageTabs;
+        "page-user": PageUser;
+        "page-users": PageUsers;
         "user-profile": UserProfile;
     }
 }
@@ -138,7 +178,10 @@ declare module "@stencil/core" {
             "page-home": LocalJSX.PageHome & JSXBase.HTMLAttributes<HTMLPageHomeElement>;
             "page-message": LocalJSX.PageMessage & JSXBase.HTMLAttributes<HTMLPageMessageElement>;
             "page-messages": LocalJSX.PageMessages & JSXBase.HTMLAttributes<HTMLPageMessagesElement>;
+            "page-setting": LocalJSX.PageSetting & JSXBase.HTMLAttributes<HTMLPageSettingElement>;
             "page-tabs": LocalJSX.PageTabs & JSXBase.HTMLAttributes<HTMLPageTabsElement>;
+            "page-user": LocalJSX.PageUser & JSXBase.HTMLAttributes<HTMLPageUserElement>;
+            "page-users": LocalJSX.PageUsers & JSXBase.HTMLAttributes<HTMLPageUsersElement>;
             "user-profile": LocalJSX.UserProfile & JSXBase.HTMLAttributes<HTMLUserProfileElement>;
         }
     }
