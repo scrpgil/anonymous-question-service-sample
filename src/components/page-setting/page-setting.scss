@@ -1,0 +1,29 @@
+page-setting {
+  .p-setting {
+    padding: 12px;
+    &__title {
+      font-weight: bold;
+    }
+    &__form {
+      margin-top: 17px;
+      &-label {
+        margin-bottom: 8px;
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--ion-color-dark);
+      }
+      &-input {
+        background-color: #fff;
+        border: 1px solid var(--ion-color-medium);
+        border-radius: 8px;
+        padding: 2px 8px;
+        margin-bottom: 16px;
+      }
+    }
+    &__save,
+    &__logout {
+      margin-top: 12px;
+      text-align: center;
+    }
+  }
+}

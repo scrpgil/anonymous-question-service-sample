@@ -67,3 +67,19 @@ export const putMessage = (userId: string, messageId: string, message: IMessage)
   message.updatedAt = new Date();
   return ref.update(message);
 };
+
+export const getUsers = (createdAt: Date = new Date()) => {
+  return db.collection('users').where('createdAt', '<', createdAt).orderBy('createdAt', 'desc').limit(10).get();
+};
+
+export const signOut = async () => {
+  await firebase.auth().signOut();
+};
+
+export const updateUserName = async (userId: string, name: string) => {
+  await firebase.auth().currentUser.updateProfile({
+    displayName: name,
+  });
+  const ref = getUserRef(userId);
+  return ref.update({ name: name });
+};

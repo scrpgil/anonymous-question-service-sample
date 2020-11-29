@@ -5,6 +5,7 @@ import { AuthProvider } from '../../providers/auth';
 import { UserProvider } from '../../providers/user';
 import { IUser } from '../../interfaces/user';
 import { IMessage } from '../../interfaces/message';
+import { getTwitterLink } from '../../helpers/utils';
 
 @Component({
   tag: 'page-message',
@@ -15,6 +16,7 @@ export class MessagePage {
   @State() user: IUser = null;
   @State() message: IMessage;
   @State() text: string = '';
+  @State() twitterLink: string = '#';
 
   @Prop() userId: string;
   @Prop() messageId: string;
@@ -58,6 +60,7 @@ export class MessagePage {
     this.message = await MessageProvider.get(this.userId, this.messageId);
     if (this.message && this.message.answer) {
       this.text = this.message.answer;
+      this.twitterLink = getTwitterLink('/messages/' + this.userId + '/' + this.messageId);
     }
   }
 
@@ -90,6 +93,18 @@ export class MessagePage {
                     <div class="p-message__answer-user-name">{this.user.name}</div>
                   </div>
                   <div class="p-message__answer-message">{this.message.answer ? this.message.answer : 'まだ回答はありません'}</div>
+                  {(() => {
+                    if (this.message.answer) {
+                      return (
+                        <div class="p-message__answer-twitter">
+                          <ion-button size="small" fill="clear" href={this.twitterLink} target="_blank">
+                            <ion-icon slot="start" name="logo-twitter" />
+                            Twitterにも投稿する
+                          </ion-button>
+                        </div>
+                      );
+                    }
+                  })()}
                 </div>
               </div>
             );
