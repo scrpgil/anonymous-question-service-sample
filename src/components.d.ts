@@ -8,6 +8,8 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AppRoot {
     }
+    interface AuthButton {
+    }
     interface PageHome {
     }
     interface PageTabs {
@@ -19,6 +21,12 @@ declare global {
     var HTMLAppRootElement: {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
+    };
+    interface HTMLAuthButtonElement extends Components.AuthButton, HTMLStencilElement {
+    }
+    var HTMLAuthButtonElement: {
+        prototype: HTMLAuthButtonElement;
+        new (): HTMLAuthButtonElement;
     };
     interface HTMLPageHomeElement extends Components.PageHome, HTMLStencilElement {
     }
@@ -34,6 +42,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
+        "auth-button": HTMLAuthButtonElement;
         "page-home": HTMLPageHomeElement;
         "page-tabs": HTMLPageTabsElement;
     }
@@ -41,12 +50,15 @@ declare global {
 declare namespace LocalJSX {
     interface AppRoot {
     }
+    interface AuthButton {
+    }
     interface PageHome {
     }
     interface PageTabs {
     }
     interface IntrinsicElements {
         "app-root": AppRoot;
+        "auth-button": AuthButton;
         "page-home": PageHome;
         "page-tabs": PageTabs;
     }
@@ -56,6 +68,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "auth-button": LocalJSX.AuthButton & JSXBase.HTMLAttributes<HTMLAuthButtonElement>;
             "page-home": LocalJSX.PageHome & JSXBase.HTMLAttributes<HTMLPageHomeElement>;
             "page-tabs": LocalJSX.PageTabs & JSXBase.HTMLAttributes<HTMLPageTabsElement>;
         }

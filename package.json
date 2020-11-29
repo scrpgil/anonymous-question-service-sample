@@ -19,6 +19,7 @@
     "@stencil/core": "^2.0.1"
   },
   "dependencies": {
-    "@stencil/sass": "^1.4.0"
+    "@stencil/sass": "^1.4.0",
+    "firebase": "^8.1.1"
   }
 }
